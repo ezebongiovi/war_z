@@ -24,7 +24,7 @@ public class RoseTree extends AbstractObject {
 
     @Override
     protected Point getCollisionPosition(Point position) {
-        return new Point(position.x + (getObjectInformation().getImageIcon().getIconWidth() / 2) + 25,
+        return new Point(position.x + (getObjectInformation().getImageIcon().getIconWidth() / 2) + 15,
                 position.y + getObjectInformation().getImageIcon().getIconHeight());
     }
 
