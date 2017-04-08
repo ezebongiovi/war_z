@@ -17,7 +17,7 @@ public class Dirt extends AbstractSurface {
 
     @Override
     protected String getSoundPath() {
-        return "/sound/footstep_dirt.wav";
+        return "/sound/footstep_dirt_0.wav";
     }
 
     @Override
