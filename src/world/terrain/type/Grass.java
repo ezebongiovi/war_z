@@ -7,7 +7,7 @@ import java.net.URL;
  */
 public class Grass extends AbstractSurface {
 
-    private static final String KEY = "G";
+    public static final String KEY = "G";
     private static final String PATH = "/grass.png";
 
     @Override

@@ -1,4 +1,4 @@
-package world;
+package world.terrain.maps;
 
 
 import environment.manager.SessionManager;

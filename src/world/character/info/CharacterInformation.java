@@ -1,7 +1,7 @@
 package world.character.info;
 
 
-import world.Map;
+import world.terrain.maps.Map;
 import world.character.type.DefaultType;
 import world.objects.property.ObjectInformation;
 

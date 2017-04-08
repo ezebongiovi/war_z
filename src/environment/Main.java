@@ -7,7 +7,7 @@ import world.character.Character;
 import world.character.info.CharacterInformation;
 import world.character.control.Controls;
 import world.character.type.DefaultType;
-import world.terrain.DemoMap;
+import world.terrain.maps.DemoMap;
 import world.terrain.type.AbstractSurface;
 
 import javax.swing.*;

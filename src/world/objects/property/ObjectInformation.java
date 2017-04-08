@@ -1,7 +1,7 @@
 package world.objects.property;
 
 
-import world.Map;
+import world.terrain.maps.Map;
 
 import javax.swing.*;
 

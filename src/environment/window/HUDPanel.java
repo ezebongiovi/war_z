@@ -15,7 +15,6 @@ import java.awt.*;
 public class HUDPanel extends JPanel {
 
     private final Subject<SurvivalState> mSubject;
-    private CharacterInformation mCharacterInformation;
     private JProgressBar mHealthBar;
     private JProgressBar mHungryBar;
     private JProgressBar mHydratationBar;
@@ -26,7 +25,6 @@ public class HUDPanel extends JPanel {
      * @param characterInformation information being displayed
      */
     public HUDPanel(final CharacterInformation characterInformation) {
-        mCharacterInformation = characterInformation;
         mSubject = characterInformation.getSurvivalState();
         mSubject.setState(characterInformation.getSurvivalState());
 

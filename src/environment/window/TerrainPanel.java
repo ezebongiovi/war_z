@@ -2,7 +2,7 @@ package environment.window;
 
 
 import environment.manager.SessionManager;
-import world.Map;
+import world.terrain.maps.Map;
 import world.character.behaviour.TerrainPanelListener;
 import world.objects.AbstractObject;
 import world.terrain.config.Configuration;
