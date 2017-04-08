@@ -78,7 +78,7 @@ public abstract class Map {
         }
 
         // Plays ground sound
-        mTerrain.getTypeByCoords(character.getCollisionCircle().getCollisionPosition().x,
+        mTerrain.getSurfaceTypeByCoords(character.getCollisionCircle().getCollisionPosition().x,
                 character.getCollisionCircle().getCollisionPosition().y).playSound();
     }
 
@@ -99,7 +99,7 @@ public abstract class Map {
     }
 
     private AbstractSurface getFloorObjectByCoords(final int x, final int y) {
-        return mTerrain.getTypeByCoords(x, y);
+        return mTerrain.getSurfaceTypeByCoords(x, y);
     }
 
     public List<AbstractObject> getObjects() {

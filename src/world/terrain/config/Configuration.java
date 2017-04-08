@@ -35,10 +35,6 @@ public class Configuration {
         return mTerrainMatrix;
     }
 
-    public Point getSize() {
-        return new Point(mTerrainMatrix[0].length, mTerrainMatrix.length);
-    }
-
     public static final class Builder {
 
         private String[][] keyConfiguration;

@@ -2,10 +2,11 @@ package environment.window;
 
 
 import environment.manager.SessionManager;
-import world.terrain.maps.Map;
 import world.character.behaviour.TerrainPanelListener;
 import world.objects.AbstractObject;
 import world.terrain.config.Configuration;
+import world.terrain.maps.Map;
+import world.terrain.type.AbstractSurface;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,24 +43,61 @@ public class TerrainPanel extends JPanel implements TerrainPanelListener {
 
         translate(g);
 
+        drawSurface(g, configuration);
+
+        drawObjects(g);
+    }
+
+    /**
+     * Analyzes the visible land for player and checks if the current object should be drawn
+     * or not. Those objects that are out of sight shouldn't be drawn
+     *
+     * @param g the JPanel graphics
+     * @return whether to draw or not the object.
+     */
+    private boolean shouldDrawObject(final Graphics g, final AbstractObject object) {
+        final Rectangle bounds = g.getClipBounds();
+        final Point objectPosition = object.getCollisionCircle().getCollisionPosition();
+
+        return objectPosition.getX() >= bounds.getX() && objectPosition.getX() <= bounds.getX() + bounds.getWidth()
+                && objectPosition.getY() >= bounds.getY() && objectPosition.getY() <= bounds.getY() + bounds.getHeight();
+    }
+
+    /**
+     * Draws the map's sufrace
+     *
+     * @param g             the graphics
+     * @param configuration the map configuration
+     */
+    private void drawSurface(final Graphics g, final Configuration configuration) {
         int row = 0;
         int col = 0;
 
+
         for (int index = 0; index < configuration.getTerrainSurface().size(); index++) {
-            final Image image = configuration.getTerrainSurface().get(index).getImageIcon().getImage();
+            final AbstractSurface surface = configuration.getTerrainSurface().get(index);
+            final ImageIcon image = surface.getImageIcon();
+            final String[][] terrainMatrix = mMap.getTerrain().getConfiguration().getTerrainMatrix();
 
-
-            if (col == mMap.getTerrain().getConfiguration().getSize().x) {
+            if (row < terrainMatrix.length && col == terrainMatrix[row].length) {
                 col = 0;
                 row++;
             }
 
-            g.drawImage(image, image.getWidth(null) * col,
-                    image.getHeight(null) * row, null);
+            g.drawImage(image.getImage(), image.getIconWidth() * col,
+                    image.getIconHeight() * row, null);
 
             col++;
         }
+    }
 
+    /**
+     * Draws the map's objects. This method <b>MUST</b> be called after the surface drawing
+     * for drawing the objects over the surface.
+     *
+     * @param g the graphics
+     */
+    private void drawObjects(final Graphics g) {
         final java.util.List<AbstractObject> orderedObjects = mMap.getObjects();
         orderedObjects.add(SessionManager.getInstance().getLoggedCharacter());
 
@@ -73,9 +111,11 @@ public class TerrainPanel extends JPanel implements TerrainPanelListener {
 
         for (final AbstractObject object : orderedObjects) {
 
-            g.drawImage(object.getObjectInformation().getImageIcon().getImage(), (int) object
-                            .getCollisionCircle().getPosition().getX(),
-                    (int) object.getCollisionCircle().getPosition().getY(), this);
+            if (shouldDrawObject(g, object)) {
+                g.drawImage(object.getObjectInformation().getImageIcon().getImage(), (int) object
+                                .getCollisionCircle().getPosition().getX(),
+                        (int) object.getCollisionCircle().getPosition().getY(), this);
+            }
         }
         orderedObjects.remove(SessionManager.getInstance().getLoggedCharacter());
     }
