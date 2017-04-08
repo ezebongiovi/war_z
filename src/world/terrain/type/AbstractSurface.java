@@ -17,6 +17,8 @@ import java.util.Map;
  */
 public abstract class AbstractSurface extends Component {
 
+    public static final int DEFAULT_WIDTH = 128;
+    public static final int DEFAULT_HEIGHT = 128;
     private static boolean initialized;
     private final ImageIcon mImageIcon;
     private static final Map<String, AbstractSurface> mTypes = new HashMap<>();
