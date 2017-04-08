@@ -29,7 +29,7 @@ public abstract class AbstractSurface extends Component {
     public static void initialize() {
         initialized = true;
 
-        initialize(new Grass(), new Stone());
+        initialize(new Grass(), new Stone(), new Dirt());
     }
 
     private static void initialize(final AbstractSurface... types) {

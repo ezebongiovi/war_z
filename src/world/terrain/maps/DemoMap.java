@@ -5,6 +5,7 @@ import world.objects.RoseTree;
 import world.objects.RoseTreeSkinny;
 import world.objects.Tree;
 import world.objects.property.ObjectInformation;
+import world.terrain.type.Dirt;
 import world.terrain.type.Grass;
 import world.terrain.type.Stone;
 
@@ -36,11 +37,11 @@ public class DemoMap extends Map {
     @Override
     protected String[][] getMatrix() {
         return new String[][]{
-                {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
-                {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
-                {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
-                {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
-                {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
+                {Grass.KEY, Dirt.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
+                {Grass.KEY, Dirt.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
+                {Grass.KEY, Dirt.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
+                {Grass.KEY, Dirt.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
+                {Grass.KEY, Grass.KEY, Dirt.KEY, Grass.KEY, Grass.KEY, Dirt.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
                 {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
                 {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
                 {Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Stone.KEY, Stone.KEY, Stone.KEY, Grass.KEY, Grass.KEY, Grass.KEY, Grass.KEY},
