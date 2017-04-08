@@ -1,6 +1,6 @@
 package observer;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 
 public abstract class Observer<T> {
     protected final Subject<T> subject;
@@ -10,7 +10,7 @@ public abstract class Observer<T> {
      *
      * @param subject the subject object
      */
-    public Observer(@NonNull final Subject<T> subject) {
+    public Observer(final Subject<T> subject) {
         this.subject = subject;
         this.subject.attach(this);
     }

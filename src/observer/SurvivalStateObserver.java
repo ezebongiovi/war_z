@@ -1,6 +1,6 @@
 package observer;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.character.info.SurvivalState;
 
 /**
@@ -13,7 +13,7 @@ public class SurvivalStateObserver extends Observer<SurvivalState> {
      *
      * @param subject the subject object
      */
-    public SurvivalStateObserver(@NonNull final Subject<SurvivalState> subject) {
+    public SurvivalStateObserver(final Subject<SurvivalState> subject) {
         super(subject);
     }
 

@@ -1,6 +1,6 @@
 package world.terrain;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.terrain.config.Configuration;
 import world.terrain.type.AbstractSurface;
 
@@ -16,7 +16,7 @@ public class Terrain {
      *
      * @param configuration the terrain configuration contains the map information
      */
-    public Terrain(@NonNull final Configuration configuration) {
+    public Terrain(final Configuration configuration) {
         mConfiguration = configuration;
     }
 

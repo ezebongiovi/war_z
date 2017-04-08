@@ -1,6 +1,6 @@
 package world.terrain.config;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.terrain.type.AbstractSurface;
 
 import java.awt.*;
@@ -14,7 +14,7 @@ public class Configuration {
 
     private final String[][] mTerrainMatrix;
 
-    private Configuration(@NonNull final Builder builder) {
+    private Configuration(final Builder builder) {
         this.mTerrainMatrix = builder.keyConfiguration;
     }
 
@@ -47,7 +47,7 @@ public class Configuration {
 
         }
 
-        public Builder withKeyConfiguration(@NonNull final String[][] keyConfiguration) {
+        public Builder withKeyConfiguration(final String[][] keyConfiguration) {
             this.keyConfiguration = keyConfiguration;
             return this;
         }

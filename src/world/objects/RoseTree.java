@@ -1,6 +1,6 @@
 package world.objects;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.objects.property.ObjectInformation;
 
 import java.awt.*;
@@ -18,12 +18,12 @@ public class RoseTree extends AbstractObject {
      * @param position          the object's position in map
      * @param objectInformation the object's information
      */
-    public RoseTree(@NonNull final Point position, @NonNull final ObjectInformation objectInformation) {
+    public RoseTree(final Point position, final ObjectInformation objectInformation) {
         super(position, objectInformation);
     }
 
     @Override
-    protected Point getCollisionPosition(@NonNull Point position) {
+    protected Point getCollisionPosition(Point position) {
         return new Point(position.x + (getObjectInformation().getImageIcon().getIconWidth() / 2) + 25,
                 position.y + getObjectInformation().getImageIcon().getIconHeight());
     }

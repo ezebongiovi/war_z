@@ -1,6 +1,6 @@
 package world.terrain.type;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
@@ -32,7 +32,7 @@ public abstract class AbstractSurface extends Component {
         initialize(new Grass(), new Stone());
     }
 
-    private static void initialize(@NonNull final AbstractSurface... types) {
+    private static void initialize(final AbstractSurface... types) {
         for (AbstractSurface type : types) {
             mTypes.put(type.getKey(), type);
         }
@@ -65,7 +65,7 @@ public abstract class AbstractSurface extends Component {
      * @param key the key
      * @return the {@link AbstractSurface AbstractSurface} instance
      */
-    public static AbstractSurface getTypeByKey(@NonNull final String key) {
+    public static AbstractSurface getTypeByKey(final String key) {
         if (!initialized) {
             initialize();
         }

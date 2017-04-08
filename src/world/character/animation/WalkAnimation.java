@@ -1,6 +1,6 @@
 package world.character.animation;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.character.control.Controls;
 import world.character.type.DefaultType;
 
@@ -27,11 +27,11 @@ public class WalkAnimation {
      *
      * @param type the type of character being used
      */
-    public WalkAnimation(@NonNull final DefaultType type) {
+    public WalkAnimation(final DefaultType type) {
         mType = type;
     }
 
-    public URL onMove(@NonNull final Controls.Directions direction) {
+    public URL onMove(final Controls.Directions direction) {
         if (direction.equals(Controls.Directions.DOWN)) {
             if (!mState.equals(AnimationType.STOP_DOWN) && !mState.equals(AnimationType.WALK_DOWN)
                     && !mState.equals(AnimationType.WALK_DOWN_2)) {

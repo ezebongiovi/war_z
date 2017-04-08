@@ -1,6 +1,6 @@
 package observer;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +17,12 @@ public class Subject<T> {
         return state;
     }
 
-    public void setState(@NonNull final T state) {
+    public void setState(final T state) {
         this.state = state;
         notifyAllObservers();
     }
 
-    public void attach(@NonNull final Observer observer) {
+    public void attach(final Observer observer) {
         observers.add(observer);
     }
 

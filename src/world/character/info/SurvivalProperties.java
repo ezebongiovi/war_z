@@ -1,6 +1,6 @@
 package world.character.info;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 
 public final class SurvivalProperties {
         int health;
@@ -10,7 +10,7 @@ public final class SurvivalProperties {
         int infection;
         int hydratation;
 
-        private SurvivalProperties(@NonNull final Builder builder) {
+        private SurvivalProperties(final Builder builder) {
             this.health = builder.health;
             this.stamina = builder.stamina;
             this.hungry = builder.hungry;

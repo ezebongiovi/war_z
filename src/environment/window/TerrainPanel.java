@@ -1,6 +1,6 @@
 package environment.window;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import environment.manager.SessionManager;
 import world.Map;
 import world.character.behaviour.TerrainPanelListener;
@@ -26,7 +26,7 @@ public class TerrainPanel extends JPanel implements TerrainPanelListener {
      * @param map       the map
      * @param dimension the panel size
      */
-    public TerrainPanel(@NonNull final Map map, @NonNull final Dimension dimension) {
+    public TerrainPanel(final Map map, final Dimension dimension) {
         setPreferredSize(dimension);
         setLocation(0, 0);
         mMap = map;
@@ -114,7 +114,7 @@ public class TerrainPanel extends JPanel implements TerrainPanelListener {
         g.translate(xTranslation, yTranslation);
     }
 
-    public void drawFromPoint(@NonNull final Point point) {
+    public void drawFromPoint(final Point point) {
         mPoint = point;
 
         repaint();

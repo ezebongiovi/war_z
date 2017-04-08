@@ -1,7 +1,6 @@
 package environment.manager;
 
 import com.sun.istack.internal.Nullable;
-import com.sun.javafx.beans.annotations.NonNull;
 import world.character.Character;
 import world.character.info.CharacterInformation;
 
@@ -32,7 +31,7 @@ public class SessionManager {
      *
      * @param characterInformation the character information
      */
-    public void login(@NonNull final Point position, @NonNull final CharacterInformation characterInformation) {
+    public void login(final Point position, final CharacterInformation characterInformation) {
         mCharacter = new Character(position, characterInformation);
     }
 

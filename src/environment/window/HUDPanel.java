@@ -1,6 +1,6 @@
 package environment.window;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import observer.Subject;
 import observer.SurvivalStateObserver;
 import world.character.info.CharacterInformation;
@@ -25,7 +25,7 @@ public class HUDPanel extends JPanel {
      *
      * @param characterInformation information being displayed
      */
-    public HUDPanel(@NonNull final CharacterInformation characterInformation) {
+    public HUDPanel(final CharacterInformation characterInformation) {
         mCharacterInformation = characterInformation;
         mSubject = characterInformation.getSurvivalState();
         mSubject.setState(characterInformation.getSurvivalState());

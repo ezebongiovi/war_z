@@ -1,6 +1,6 @@
 package world.objects.property;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.Map;
 
 import javax.swing.*;
@@ -18,7 +18,7 @@ public class ObjectInformation {
      *
      * @param map             the map to where it's being attached
      */
-    public ObjectInformation(@NonNull final Map map, @NonNull final ImageIcon imageIcon) {
+    public ObjectInformation(final Map map, final ImageIcon imageIcon) {
         mMap = map;
         mImageIcon = imageIcon;
     }

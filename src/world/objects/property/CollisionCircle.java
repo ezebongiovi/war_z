@@ -1,6 +1,6 @@
 package world.objects.property;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 
 import java.awt.*;
 
@@ -15,7 +15,7 @@ public class CollisionCircle {
          * @param position the object's position
          * @param radius   the object's collision radius
          */
-        public CollisionCircle(@NonNull final Point position, final int radius) {
+        public CollisionCircle(final Point position, final int radius) {
             this(position, position, radius);
         }
 
@@ -26,7 +26,7 @@ public class CollisionCircle {
          * @param collisionPosition the position of the collision zone
          * @param radius            the object's collision radius
          */
-        public CollisionCircle(@NonNull final Point position, @NonNull final Point collisionPosition,
+        public CollisionCircle(final Point position, final Point collisionPosition,
                                final int radius) {
             this.position = position;
             this.radius = radius;

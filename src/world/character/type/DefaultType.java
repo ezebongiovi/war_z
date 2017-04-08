@@ -1,6 +1,6 @@
 package world.character.type;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.character.animation.WalkAnimation;
 
 /**
@@ -14,7 +14,7 @@ public class DefaultType {
         NICK, STEVE, SHAILA
     }
 
-    public DefaultType(@NonNull final CharacterName characterName) {
+    public DefaultType(final CharacterName characterName) {
         mCharacterName = characterName;
     }
 
@@ -24,7 +24,7 @@ public class DefaultType {
      * @param type          the asset direction being loaded
      * @return the path to the asset
      */
-    public String getWalkSpritePath(@NonNull final WalkAnimation.AnimationType type) {
+    public String getWalkSpritePath(final WalkAnimation.AnimationType type) {
         final String name = mCharacterName.toString().toLowerCase();
         final String direction = type.toString().toLowerCase();
         return "/players/" + name + "/" + direction + ".png";

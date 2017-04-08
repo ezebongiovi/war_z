@@ -1,6 +1,6 @@
 package environment.window;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import environment.manager.SessionManager;
 import world.Map;
 import world.character.control.Controls;
@@ -26,7 +26,7 @@ public class GameFrame extends JFrame {
 
     }
 
-    private GameFrame(@NonNull final Map map, @NonNull final Controls controls) {
+    private GameFrame(final Map map, final Controls controls) {
         mControls = controls;
         setLayout(new BorderLayout());
 
@@ -43,7 +43,7 @@ public class GameFrame extends JFrame {
      *
      * @return the singleton
      */
-    public static GameFrame getInstance(@NonNull final Map map, @NonNull final Controls controls) {
+    public static GameFrame getInstance(final Map map, final Controls controls) {
         if (INSTANCE == null) {
             INSTANCE = new GameFrame(map, controls);
 
@@ -62,7 +62,7 @@ public class GameFrame extends JFrame {
      *
      * @param windowType the window type
      */
-    public void setWindowConfiguration(@NonNull final WindowType windowType) {
+    public void setWindowConfiguration(final WindowType windowType) {
         if (WindowType.FULLSCREEN.equals(windowType)) {
             setExtendedState(JFrame.MAXIMIZED_BOTH);
             setUndecorated(true);

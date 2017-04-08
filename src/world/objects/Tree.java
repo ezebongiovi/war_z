@@ -1,6 +1,6 @@
 package world.objects;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.objects.property.ObjectInformation;
 
 import java.awt.*;
@@ -18,12 +18,12 @@ public class Tree extends AbstractObject {
      * @param position          the position in map
      * @param objectInformation the object's information
      */
-    public Tree(@NonNull final Point position, @NonNull final ObjectInformation objectInformation) {
+    public Tree(final Point position, final ObjectInformation objectInformation) {
         super(position, objectInformation);
     }
 
     @Override
-    protected Point getCollisionPosition(@NonNull final Point position) {
+    protected Point getCollisionPosition(final Point position) {
         return new Point(position.x + (getObjectInformation().getImageIcon().getIconWidth() / 2) + 15,
                 position.y + getObjectInformation().getImageIcon().getIconHeight());
     }

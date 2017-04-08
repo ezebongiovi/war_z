@@ -1,6 +1,6 @@
 package world.objects;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.objects.property.CollisionCircle;
 import world.objects.property.ObjectInformation;
 
@@ -19,7 +19,7 @@ public abstract class AbstractObject extends Component {
      * @param position          the object's position in map
      * @param objectInformation the object's information
      */
-    public AbstractObject(@NonNull Point position, @NonNull final ObjectInformation objectInformation) {
+    public AbstractObject(Point position, final ObjectInformation objectInformation) {
         this.objectInformation = objectInformation;
         this.collisionCircle = new CollisionCircle(position, getCollisionPosition(position), getCollisionRadius());
     }
@@ -32,7 +32,7 @@ public abstract class AbstractObject extends Component {
         return collisionCircle;
     }
 
-    protected abstract Point getCollisionPosition(@NonNull final Point position);
+    protected abstract Point getCollisionPosition(final Point position);
 
     protected abstract int getCollisionRadius();
 }

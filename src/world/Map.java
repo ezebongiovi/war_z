@@ -1,6 +1,6 @@
 package world;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import environment.manager.SessionManager;
 import world.character.Character;
 import world.character.behaviour.TerrainPanelListener;
@@ -42,7 +42,7 @@ public abstract class Map {
      *
      * @param object the character being added
      */
-    public void addObject(@NonNull final AbstractObject object) {
+    public void addObject(final AbstractObject object) {
         mObjects.add(object);
 
         if (mTerrainPanelListener != null) {
@@ -56,7 +56,7 @@ public abstract class Map {
      *
      * @param character the character which has moved
      */
-    public void onCharacterMoved(@NonNull final Character character) {
+    public void onCharacterMoved(final Character character) {
 
         for (final AbstractObject object : mObjects) {
             final CollisionCircle objectCollision = object.getCollisionCircle();
@@ -82,7 +82,7 @@ public abstract class Map {
                 character.getCollisionCircle().getCollisionPosition().y).playSound();
     }
 
-    public void removeObject(@NonNull final AbstractObject object) {
+    public void removeObject(final AbstractObject object) {
         mObjects.remove(object);
     }
 
@@ -94,7 +94,7 @@ public abstract class Map {
 
     protected abstract String[][] getMatrix();
 
-    public void setTerrainPanelListener(@NonNull final TerrainPanelListener terrainPanelListener) {
+    public void setTerrainPanelListener(final TerrainPanelListener terrainPanelListener) {
         mTerrainPanelListener = terrainPanelListener;
     }
 

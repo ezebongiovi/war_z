@@ -1,6 +1,6 @@
 package world.character;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.character.animation.WalkAnimation;
 import world.character.behaviour.CharacterBehaviour;
 import world.character.control.Controls;
@@ -28,14 +28,14 @@ public class Character extends AbstractObject implements CharacterBehaviour {
      * @param position             the position in map
      * @param characterInformation the information about this character
      */
-    public Character(@NonNull final Point position, @NonNull final CharacterInformation characterInformation) {
+    public Character(final Point position, final CharacterInformation characterInformation) {
         super(position, characterInformation);
         mCharacterInformation = characterInformation;
         mWalkAnimation = new WalkAnimation(characterInformation.getType());
     }
 
     @Override
-    public void onMove(@NonNull final Controls.Directions direction) {
+    public void onMove(final Controls.Directions direction) {
         Point newLocation = null;
         switch (direction) {
             case LEFT:
@@ -80,7 +80,7 @@ public class Character extends AbstractObject implements CharacterBehaviour {
     }
 
     @Override
-    protected Point getCollisionPosition(@NonNull final Point position) {
+    protected Point getCollisionPosition(final Point position) {
         return new Point(position.x + getObjectInformation().getImageIcon().getIconWidth() / 2,
                 position.y + getObjectInformation().getImageIcon().getIconHeight());
     }

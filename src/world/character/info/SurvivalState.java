@@ -1,6 +1,6 @@
 package world.character.info;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import observer.Observer;
 import observer.Subject;
 
@@ -32,8 +32,8 @@ public class SurvivalState extends Subject<SurvivalState> {
      * @param maxProperties     the max possible value for every survival property
      * @param currentProperties the current value for every survival property
      */
-    public SurvivalState(@NonNull final SurvivalProperties maxProperties,
-                         @NonNull final SurvivalProperties currentProperties) {
+    public SurvivalState(final SurvivalProperties maxProperties,
+                         final SurvivalProperties currentProperties) {
         this.maxProperties = maxProperties;
         this.currentProperties = currentProperties;
         this.lifeState = getCurrentProperties().getHealth() > 0 ? LifeState.ALIVE : LifeState.DEAD;
@@ -62,7 +62,7 @@ public class SurvivalState extends Subject<SurvivalState> {
         }
     }
 
-    public void addObserver(@NonNull final Observer<SurvivalState> observer) {
+    public void addObserver(final Observer<SurvivalState> observer) {
         this.observers.add(observer);
     }
 

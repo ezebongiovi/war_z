@@ -1,6 +1,6 @@
 package world.character.info;
 
-import com.sun.javafx.beans.annotations.NonNull;
+
 import world.Map;
 import world.character.type.DefaultType;
 import world.objects.property.ObjectInformation;
@@ -22,7 +22,7 @@ public class CharacterInformation extends ObjectInformation {
      *
      * @param builder the information's builder
      */
-    private CharacterInformation(@NonNull final Builder builder) {
+    private CharacterInformation(final Builder builder) {
         super(builder.map, builder.imageIcon);
         id = builder.id;
         mType = builder.type;
@@ -42,7 +42,7 @@ public class CharacterInformation extends ObjectInformation {
         return id;
     }
 
-    public void onIconChanged(@NonNull final ImageIcon imageIcon) {
+    public void onIconChanged(final ImageIcon imageIcon) {
         mImageIcon = imageIcon;
     }
 
@@ -58,7 +58,7 @@ public class CharacterInformation extends ObjectInformation {
         private DefaultType type;
         private SurvivalState survivalState;
 
-        public Builder setMap(@NonNull final Map map) {
+        public Builder setMap(final Map map) {
             this.map = map;
             return this;
         }
@@ -68,22 +68,22 @@ public class CharacterInformation extends ObjectInformation {
             return this;
         }
 
-        public Builder setId(@NonNull final String id) {
+        public Builder setId(final String id) {
             this.id = id;
             return this;
         }
 
-        public Builder setImageIcon(@NonNull final ImageIcon imageIcon) {
+        public Builder setImageIcon(final ImageIcon imageIcon) {
             this.imageIcon = imageIcon;
             return this;
         }
 
-        public Builder setSurvivalState(@NonNull final SurvivalState survivalState) {
+        public Builder setSurvivalState(final SurvivalState survivalState) {
             this.survivalState = survivalState;
             return this;
         }
 
-        public Builder setType(@NonNull final DefaultType type) {
+        public Builder setType(final DefaultType type) {
             this.type = type;
             return this;
         }
