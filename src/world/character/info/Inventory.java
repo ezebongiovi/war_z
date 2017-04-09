@@ -12,7 +12,7 @@ import java.util.List;
 public class Inventory {
 
     public static final int INVENTORY_DEFAULT_SPACE = 5;
-    private final int mSpace = INVENTORY_DEFAULT_SPACE;
+    private int mSpace = INVENTORY_DEFAULT_SPACE;
     private final List<AbstractItem> mItems = new ArrayList<>();
 
     public Inventory() {
@@ -45,5 +45,9 @@ public class Inventory {
 
     public List<AbstractItem> getmItems() {
         return mItems;
+    }
+
+    public void setSpace(final int space) {
+        mSpace = space;
     }
 }
