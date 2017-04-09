@@ -24,7 +24,7 @@ public class Tree extends AbstractObject {
 
     @Override
     protected Point getCollisionPosition(final Point position) {
-        return new Point(position.x + (getObjectInformation().getImageIcon().getIconWidth() / 2) + 15,
+        return new Point(position.x + (getObjectInformation().getImageIcon().getIconWidth() / 2) - 5,
                 position.y + getObjectInformation().getImageIcon().getIconHeight());
     }
 
