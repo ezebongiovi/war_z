@@ -1,4 +1,4 @@
-package world.character.behaviour;
+package world.behaviour;
 
 
 

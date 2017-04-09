@@ -3,7 +3,7 @@ package world.terrain.maps;
 
 import environment.manager.SessionManager;
 import world.character.Character;
-import world.character.behaviour.TerrainPanelListener;
+import world.behaviour.TerrainPanelListener;
 import world.objects.AbstractObject;
 import world.objects.property.CollisionCircle;
 import world.terrain.Terrain;

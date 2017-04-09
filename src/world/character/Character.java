@@ -2,7 +2,7 @@ package world.character;
 
 
 import world.character.animation.WalkAnimation;
-import world.character.behaviour.CharacterBehaviour;
+import world.behaviour.CharacterBehaviour;
 import world.character.control.Controls;
 import world.character.info.CharacterInformation;
 import world.objects.AbstractObject;
