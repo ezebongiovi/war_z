@@ -1,6 +1,7 @@
 package world.objects;
 
 
+import com.sun.istack.internal.NotNull;
 import world.objects.property.CollisionCircle;
 import world.objects.property.ObjectInformation;
 
@@ -19,7 +20,7 @@ public abstract class AbstractObject extends Component {
      * @param position          the object's position in map
      * @param objectInformation the object's information
      */
-    public AbstractObject(Point position, final ObjectInformation objectInformation) {
+    public AbstractObject(@NotNull final Point position, @NotNull final ObjectInformation objectInformation) {
         this.objectInformation = objectInformation;
         this.collisionCircle = new CollisionCircle(position, getCollisionPosition(position), getCollisionRadius());
     }

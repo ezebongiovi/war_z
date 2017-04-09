@@ -1,9 +1,10 @@
 package world.character.info;
 
 
-import world.terrain.maps.Map;
+import com.sun.istack.internal.NotNull;
 import world.character.type.DefaultType;
 import world.objects.property.ObjectInformation;
+import world.terrain.maps.Map;
 
 import javax.swing.*;
 
@@ -16,6 +17,7 @@ public class CharacterInformation extends ObjectInformation {
     private final int mMovementSpeed;
     private final DefaultType mType;
     private final SurvivalState survivalState;
+    private final Inventory mInventory;
 
     /**
      * Default hidden constructor
@@ -28,6 +30,7 @@ public class CharacterInformation extends ObjectInformation {
         mType = builder.type;
         mMovementSpeed = builder.movementSpeed;
         survivalState = builder.survivalState == null ? SurvivalState.STARTER_STATE : builder.survivalState;
+        mInventory = builder.inventory;
     }
 
     public int getMovementSpeed() {
@@ -50,6 +53,10 @@ public class CharacterInformation extends ObjectInformation {
         return survivalState;
     }
 
+    public Inventory getInventory() {
+        return mInventory;
+    }
+
     public static final class Builder {
         private Map map;
         private int movementSpeed;
@@ -57,6 +64,7 @@ public class CharacterInformation extends ObjectInformation {
         private ImageIcon imageIcon;
         private DefaultType type;
         private SurvivalState survivalState;
+        private Inventory inventory = new Inventory();
 
         public Builder setMap(final Map map) {
             this.map = map;
@@ -85,6 +93,11 @@ public class CharacterInformation extends ObjectInformation {
 
         public Builder setType(final DefaultType type) {
             this.type = type;
+            return this;
+        }
+
+        public Builder setInventory(@NotNull final Inventory inventory) {
+            this.inventory = inventory;
             return this;
         }
 
