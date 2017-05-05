@@ -161,6 +161,13 @@ public class TerrainPanel extends JPanel implements TerrainPanelListener {
     }
 
     @Override
+    public void reDraw() {
+        if (mPoint != null) {
+            repaint();
+        }
+    }
+
+    @Override
     public String getName() {
         return "TERRAIN";
     }

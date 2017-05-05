@@ -29,6 +29,8 @@ public class Controls implements KeyListener {
             SessionManager.getInstance().getLoggedCharacter().onMove(Directions.UP);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             SessionManager.getInstance().getLoggedCharacter().onMove(Directions.DOWN);
+        } else if (e.getKeyCode() == KeyEvent.VK_E) {
+            SessionManager.getInstance().getLoggedCharacter().onAction();
         }
     }
 

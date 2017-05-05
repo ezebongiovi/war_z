@@ -1,14 +1,18 @@
 package world.character;
 
 
-import world.character.animation.WalkAnimation;
+import com.sun.javafx.beans.annotations.NonNull;
 import world.behaviour.CharacterBehaviour;
+import world.character.animation.WalkAnimation;
 import world.character.control.Controls;
 import world.character.info.CharacterInformation;
 import world.objects.AbstractObject;
+import world.objects.interaction.ObjectInteraction;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by epasquale on 3/24/17.
@@ -17,6 +21,7 @@ public class Character extends AbstractObject implements CharacterBehaviour {
 
     private final WalkAnimation mWalkAnimation;
     private final CharacterInformation mCharacterInformation;
+    private final List<AbstractObject> mInteractableObjects = new ArrayList<>();
 
     // Last two steps made by the character
     private final Point[] steps = new Point[2];
@@ -88,5 +93,32 @@ public class Character extends AbstractObject implements CharacterBehaviour {
     @Override
     protected int getCollisionRadius() {
         return 10;
+    }
+
+    public void addInteractableObject(@NonNull final AbstractObject object) {
+        mInteractableObjects.add(object);
+    }
+
+    public void clearInteractableObjects() {
+        mInteractableObjects.clear();
+    }
+
+    @Override
+    protected ObjectInteraction getInteraction() {
+        return null;
+    }
+
+    @Override
+    protected String getObjectName() {
+        return getCharacterInformation().getId();
+    }
+
+    public void onAction() {
+        System.out.println("Action");
+        for (final AbstractObject object : mInteractableObjects) {
+            System.out.println("Actioned on item " + object.getName());
+
+            object.getObjectInteraction().interact(this);
+        }
     }
 }

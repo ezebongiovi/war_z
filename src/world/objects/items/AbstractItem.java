@@ -3,6 +3,8 @@ package world.objects.items;
 import com.sun.istack.internal.NotNull;
 import world.behaviour.ItemBehaviour;
 import world.objects.AbstractObject;
+import world.objects.interaction.ItemInteraction;
+import world.objects.interaction.ObjectInteraction;
 import world.objects.property.ObjectInformation;
 
 import javax.swing.*;
@@ -19,19 +21,25 @@ public abstract class AbstractItem extends AbstractObject implements ItemBehavio
      * @param position          the object's position in map
      * @param objectInformation the object's information
      */
-    public AbstractItem(@NotNull Point position, @NotNull ObjectInformation objectInformation) {
+    public AbstractItem(@NotNull final Point position, @NotNull final ObjectInformation objectInformation) {
         super(position, objectInformation);
     }
 
     @Override
     protected Point getCollisionPosition(@NotNull final Point position) {
-        return null;
+        return new Point(position.x + getObjectInformation().getImageIcon().getIconWidth() / 2,
+                position.y + getObjectInformation().getImageIcon().getIconHeight() / 2);
     }
 
     @Override
     protected int getCollisionRadius() {
-        return 0;
+        return 5;
     }
 
     public abstract ImageIcon getThumbnail();
+
+    @Override
+    protected ObjectInteraction getInteraction() {
+        return new ItemInteraction(getObjectInformation().getMap(), this);
+    }
 }

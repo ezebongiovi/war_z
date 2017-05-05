@@ -1,6 +1,7 @@
 package world.objects;
 
 
+import world.objects.interaction.ObjectInteraction;
 import world.objects.property.ObjectInformation;
 
 import java.awt.*;
@@ -31,5 +32,15 @@ public class Tree extends AbstractObject {
     @Override
     protected int getCollisionRadius() {
         return 5;
+    }
+
+    @Override
+    protected ObjectInteraction getInteraction() {
+        return null;
+    }
+
+    @Override
+    protected String getObjectName() {
+        return "Tree";
     }
 }

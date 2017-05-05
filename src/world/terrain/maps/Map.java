@@ -57,18 +57,37 @@ public abstract class Map {
      * @param character the character which has moved
      */
     public void onCharacterMoved(final Character character) {
+        /*
+            When the character moves we clean the interactable objects list for being refreshing the list
+            and add them back if its needed.
+         */
+        character.clearInteractableObjects();
 
         for (final AbstractObject object : mObjects) {
             final CollisionCircle objectCollision = object.getCollisionCircle();
             final CollisionCircle characterCollision = character.getCollisionCircle();
 
-            final double dx = objectCollision.getCollisionPosition().getX() - characterCollision.getCollisionPosition().getX();
-            final double dy = objectCollision.getCollisionPosition().getY() - characterCollision.getCollisionPosition().getY();
-            final double distance = Math.sqrt(dx * dx + dy * dy);
+            if (objectCollision.getRadius() > 0) {
+                /*
+                    If the object drawn has collision we handle collision. Otherwise
+                    there's no collision to handle
+                 */
+                final double dx = objectCollision.getCollisionPosition().getX() - characterCollision.getCollisionPosition().getX();
+                final double dy = objectCollision.getCollisionPosition().getY() - characterCollision.getCollisionPosition().getY();
+                final double distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < objectCollision.getRadius() + characterCollision.getRadius()) {
-                // Collision detected
-                character.undoStep();
+                if (distance < objectCollision.getRadius() + characterCollision.getRadius()) {
+                    // Collision detected
+                    character.undoStep();
+
+                    /*
+                        Adds the interactable object to characters interactable objects for handling when user
+                        presses de Action button.
+                     */
+                    if (object.getObjectInteraction() != null) {
+                        character.addInteractableObject(object);
+                    }
+                }
             }
         }
 
@@ -84,6 +103,7 @@ public abstract class Map {
 
     public void removeObject(final AbstractObject object) {
         mObjects.remove(object);
+        mTerrainPanelListener.reDraw();
     }
 
     public Terrain getTerrain() {

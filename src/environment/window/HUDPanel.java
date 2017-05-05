@@ -1,10 +1,12 @@
 package environment.window;
 
 
+import observer.ItemObserver;
 import observer.Subject;
 import observer.SurvivalStateObserver;
 import world.character.info.CharacterInformation;
 import world.character.info.SurvivalState;
+import world.objects.items.AbstractItem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,10 +16,13 @@ import java.awt.*;
  */
 public class HUDPanel extends JPanel {
 
-    private final Subject<SurvivalState> mSubject;
+    private final Subject<SurvivalState> mSurvivalSubject;
+    private final Subject<AbstractItem> mItemSubject;
+    private final CharacterInformation mCharacterInformation;
     private JProgressBar mHealthBar;
     private JProgressBar mHungryBar;
     private JProgressBar mHydratationBar;
+    private InventoryPanel mInventoryPanel;
 
     /**
      * Default constructor
@@ -25,31 +30,43 @@ public class HUDPanel extends JPanel {
      * @param characterInformation information being displayed
      */
     public HUDPanel(final CharacterInformation characterInformation) {
-        mSubject = characterInformation.getSurvivalState();
-        mSubject.setState(characterInformation.getSurvivalState());
+        mCharacterInformation = characterInformation;
+        mSurvivalSubject = characterInformation.getSurvivalState();
+        mSurvivalSubject.setState(characterInformation.getSurvivalState());
+        mItemSubject = characterInformation.getInventory();
+        mInventoryPanel = new InventoryPanel(characterInformation.getInventory());
 
-        characterInformation.getSurvivalState().addObserver(new SurvivalStateObserver(mSubject) {
+        characterInformation.getSurvivalState().addObserver(new SurvivalStateObserver(mSurvivalSubject) {
             @Override
             public void update() {
-                updatePanel();
+                updateSurvivalStates();
+            }
+        });
+
+        characterInformation.getInventory().addObserver(new ItemObserver(mItemSubject) {
+            @Override
+            public void update() {
+                mInventoryPanel.update();
             }
         });
 
         setPreferredSize(new Dimension(200, 200));
 
-        initialize();
+        initializeSurvivalStates();
+
+        add(mInventoryPanel);
     }
 
-    private void initialize() {
+    private void initializeSurvivalStates() {
         setVisible(true);
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         setLocation(100, 100);
         setBackground(Color.DARK_GRAY);
 
-        final SurvivalState survivalState = mSubject.getState();
+        final SurvivalState survivalState = mSurvivalSubject.getState();
 
-        System.out.println("Vida " + mSubject.getState().getCurrentProperties().getHealth());
+        System.out.println("Vida " + mSurvivalSubject.getState().getCurrentProperties().getHealth());
 
         // Adding Health label
         final JLabel healthLabel = new JLabel("Vida");
@@ -99,19 +116,19 @@ public class HUDPanel extends JPanel {
         add(mHydratationBar);
     }
 
-    private void updatePanel() {
-        mHealthBar.setString(mSubject.getState().getCurrentProperties().getHealth() + "/"
-                + mSubject.getState().getMaxProperties().getHealth());
-        mHealthBar.setValue(mSubject.getState().getCurrentProperties().getHealth());
+    private void updateSurvivalStates() {
+        mHealthBar.setString(mSurvivalSubject.getState().getCurrentProperties().getHealth() + "/"
+                + mSurvivalSubject.getState().getMaxProperties().getHealth());
+        mHealthBar.setValue(mSurvivalSubject.getState().getCurrentProperties().getHealth());
 
-        mHungryBar.setString(mSubject.getState().getCurrentProperties().getHungry() + "/"
-                + mSubject.getState().getMaxProperties().getHungry());
+        mHungryBar.setString(mSurvivalSubject.getState().getCurrentProperties().getHungry() + "/"
+                + mSurvivalSubject.getState().getMaxProperties().getHungry());
 
-        mHungryBar.setValue(mSubject.getState().getCurrentProperties().getHungry());
+        mHungryBar.setValue(mSurvivalSubject.getState().getCurrentProperties().getHungry());
 
-        mHydratationBar.setString(mSubject.getState().getCurrentProperties().getHydratation() + "/"
-                + mSubject.getState().getMaxProperties().getHydratation());
+        mHydratationBar.setString(mSurvivalSubject.getState().getCurrentProperties().getHydratation() + "/"
+                + mSurvivalSubject.getState().getMaxProperties().getHydratation());
 
-        mHydratationBar.setValue(mSubject.getState().getCurrentProperties().getHydratation());
+        mHydratationBar.setValue(mSurvivalSubject.getState().getCurrentProperties().getHydratation());
     }
 }
