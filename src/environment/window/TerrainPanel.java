@@ -101,13 +101,8 @@ public class TerrainPanel extends JPanel implements TerrainPanelListener {
         final java.util.List<AbstractObject> orderedObjects = mMap.getObjects();
         orderedObjects.add(SessionManager.getInstance().getLoggedCharacter());
 
-        Collections.sort(orderedObjects, new Comparator<AbstractObject>() {
-            @Override
-            public int compare(final AbstractObject o1, final AbstractObject o2) {
-                return ((Integer) o1.getCollisionCircle().getCollisionPosition().y)
-                        .compareTo((o2.getCollisionCircle().getCollisionPosition().y));
-            }
-        });
+        Collections.sort(orderedObjects, (o1, o2) -> ((Integer) o1.getCollisionCircle().getCollisionPosition().y)
+                .compareTo((o2.getCollisionCircle().getCollisionPosition().y)));
 
         for (final AbstractObject object : orderedObjects) {
 
@@ -158,6 +153,13 @@ public class TerrainPanel extends JPanel implements TerrainPanelListener {
         mPoint = point;
 
         repaint();
+    }
+
+    @Override
+    public void reDraw() {
+        if (mPoint != null) {
+            repaint();
+        }
     }
 
     @Override

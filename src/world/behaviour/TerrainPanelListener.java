@@ -9,4 +9,6 @@ import java.awt.*;
  */
 public interface TerrainPanelListener {
     void drawFromPoint(Point point);
+
+    void reDraw();
 }

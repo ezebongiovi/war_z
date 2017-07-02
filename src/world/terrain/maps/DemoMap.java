@@ -4,6 +4,8 @@ import world.objects.AbstractObject;
 import world.objects.RoseTree;
 import world.objects.RoseTreeSkinny;
 import world.objects.Tree;
+import world.objects.items.BackPack.BackPack;
+import world.objects.items.BackPack.BackPackType;
 import world.objects.property.ObjectInformation;
 import world.terrain.type.Dirt;
 import world.terrain.type.Grass;
@@ -26,7 +28,9 @@ public class DemoMap extends Map {
                 new RoseTree(new Point(500, 300), new ObjectInformation(this,
                         new ImageIcon(getClass().getResource(RoseTree.PATH)))),
                 new RoseTreeSkinny(new Point(500, 400), new ObjectInformation(this,
-                        new ImageIcon(getClass().getResource(RoseTreeSkinny.PATH))))};
+                        new ImageIcon(getClass().getResource(RoseTreeSkinny.PATH)))),
+                new BackPack(BackPackType.Type.SMALL, new Point(100, 150), new ObjectInformation(this,
+                        new ImageIcon(getClass().getResource(BackPack.THUMBNAIL_PATH))))};
     }
 
     @Override
