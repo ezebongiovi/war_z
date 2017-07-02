@@ -36,7 +36,7 @@ public abstract class AbstractObject extends Component {
         return collisionCircle;
     }
 
-    protected abstract Point getCollisionPosition(final Point position);
+    protected abstract Point getCollisionPosition(final @NotNull Point position);
 
     protected abstract int getCollisionRadius();
 

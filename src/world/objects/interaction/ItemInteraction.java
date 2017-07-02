@@ -8,9 +8,9 @@ import world.terrain.maps.Map;
 /**
  * Created by epasquale on 4/20/17.
  */
-public class ItemInteraction extends ObjectInteraction<Character> {
+public class ItemInteraction<T extends AbstractItem> extends ObjectInteraction<Character> {
 
-    private final AbstractItem mObject;
+    private final T mObject;
     private final Map mMap;
 
     /**
@@ -18,7 +18,7 @@ public class ItemInteraction extends ObjectInteraction<Character> {
      *
      * @param object the interactor object
      */
-    public ItemInteraction(@NotNull final Map map, @NotNull final AbstractItem object) {
+    public ItemInteraction(@NotNull final Map map, @NotNull final T object) {
         super(object);
         mObject = object;
         mMap = map;
@@ -29,5 +29,13 @@ public class ItemInteraction extends ObjectInteraction<Character> {
         if (character.getCharacterInformation().getInventory().addItem(mObject)) {
             mMap.removeObject(mObject);
         }
+    }
+
+    protected T getObject() {
+        return mObject;
+    }
+
+    protected Map getMap() {
+        return mMap;
     }
 }

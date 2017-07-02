@@ -82,7 +82,7 @@ public abstract class Map {
 
                     /*
                         Adds the interactable object to characters interactable objects for handling when user
-                        presses de Action button.
+                        presses the Action button.
                      */
                     if (object.getObjectInteraction() != null) {
                         character.addInteractableObject(object);

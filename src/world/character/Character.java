@@ -1,7 +1,7 @@
 package world.character;
 
 
-import com.sun.javafx.beans.annotations.NonNull;
+import com.sun.istack.internal.NotNull;
 import world.behaviour.CharacterBehaviour;
 import world.character.animation.WalkAnimation;
 import world.character.control.Controls;
@@ -95,7 +95,7 @@ public class Character extends AbstractObject implements CharacterBehaviour {
         return 10;
     }
 
-    public void addInteractableObject(@NonNull final AbstractObject object) {
+    public void addInteractableObject(@NotNull final AbstractObject object) {
         mInteractableObjects.add(object);
     }
 
@@ -114,10 +114,7 @@ public class Character extends AbstractObject implements CharacterBehaviour {
     }
 
     public void onAction() {
-        System.out.println("Action");
         for (final AbstractObject object : mInteractableObjects) {
-            System.out.println("Actioned on item " + object.getName());
-
             object.getObjectInteraction().interact(this);
         }
     }

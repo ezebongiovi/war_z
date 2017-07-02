@@ -3,7 +3,6 @@ package environment;
 import com.sun.istack.internal.Nullable;
 import environment.manager.SessionManager;
 import environment.window.GameFrame;
-import world.character.Character;
 import world.character.control.Controls;
 import world.character.info.CharacterInformation;
 import world.character.type.DefaultType;

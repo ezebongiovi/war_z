@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Inventory extends Subject<AbstractItem> {
 
-    public static final int INVENTORY_DEFAULT_SPACE = 5;
+    public static final int INVENTORY_DEFAULT_SPACE = 4;
     private int mSpace = INVENTORY_DEFAULT_SPACE;
     private final List<AbstractItem> mItems = new ArrayList<>();
     private final List<ItemObserver> mObserversList = new ArrayList<>();
@@ -54,6 +54,11 @@ public class Inventory extends Subject<AbstractItem> {
 
     public void setSpace(final int space) {
         mSpace = space;
+        notifyAllObservers();
+    }
+
+    public int getSpace() {
+        return mSpace;
     }
 
     public void addObserver(@NotNull final ItemObserver itemObserver) {
