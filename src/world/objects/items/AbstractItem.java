@@ -40,6 +40,6 @@ public abstract class AbstractItem extends AbstractObject implements ItemBehavio
 
     @Override
     protected ObjectInteraction getInteraction() {
-        return new ItemInteraction(getObjectInformation().getMap(), this);
+        return new ItemInteraction(this);
     }
 }

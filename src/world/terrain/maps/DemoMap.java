@@ -23,14 +23,14 @@ public class DemoMap extends Map {
 
     @Override
     protected AbstractObject[] getMapObjects() {
-        return new AbstractObject[]{new Tree(new Point(400, 300), new ObjectInformation(this,
-                new ImageIcon(getClass().getResource(Tree.PATH)))),
-                new RoseTree(new Point(500, 300), new ObjectInformation(this,
-                        new ImageIcon(getClass().getResource(RoseTree.PATH)))),
-                new RoseTreeSkinny(new Point(500, 400), new ObjectInformation(this,
-                        new ImageIcon(getClass().getResource(RoseTreeSkinny.PATH)))),
-                new BackPack(BackPackType.Type.SMALL, new Point(100, 150), new ObjectInformation(this,
-                        new ImageIcon(getClass().getResource(BackPack.THUMBNAIL_PATH))))};
+        return new AbstractObject[]{new Tree(new Point(400, 300), new ObjectInformation(new ImageIcon(getClass().getResource(Tree.PATH)))),
+                new RoseTree(new Point(500, 300), new ObjectInformation(new ImageIcon(getClass().getResource(RoseTree.PATH)))),
+                new RoseTreeSkinny(new Point(500, 400), new ObjectInformation(new ImageIcon(getClass().getResource(RoseTreeSkinny.PATH)))),
+                new BackPack(BackPackType.Type.SMALL, new Point(100, 150), new ObjectInformation(new ImageIcon(getClass().getResource(BackPack.THUMBNAIL_PATH)))),
+                new BackPack(BackPackType.Type.SMALL, new Point(200, 150), new ObjectInformation(new ImageIcon(getClass().getResource(BackPack.THUMBNAIL_PATH)))),
+                new BackPack(BackPackType.Type.SMALL, new Point(300, 150), new ObjectInformation(new ImageIcon(getClass().getResource(BackPack.THUMBNAIL_PATH)))),
+                        new BackPack(BackPackType.Type.SMALL, new Point(400, 150), new ObjectInformation(new ImageIcon(getClass().getResource(BackPack.THUMBNAIL_PATH)))),
+                        new BackPack(BackPackType.Type.SMALL, new Point(500, 150), new ObjectInformation(new ImageIcon(getClass().getResource(BackPack.THUMBNAIL_PATH))))};
     }
 
     @Override

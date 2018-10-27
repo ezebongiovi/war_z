@@ -11,7 +11,7 @@ import java.awt.*;
  */
 public class RoseTree extends AbstractObject {
 
-    public static final String PATH = "/forest/tree_rose.png";
+    public static final String PATH = "/environment/objects/forest/tree_rose.png";
 
     /**
      * Default constructor

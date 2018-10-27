@@ -1,8 +1,6 @@
 package world.objects.property;
 
 
-import world.terrain.maps.Map;
-
 import javax.swing.*;
 
 /**
@@ -10,21 +8,13 @@ import javax.swing.*;
  */
 public class ObjectInformation {
 
-    protected final Map mMap;
     protected ImageIcon mImageIcon;
 
     /**
      * Default constructor
-     *
-     * @param map             the map to where it's being attached
      */
-    public ObjectInformation(final Map map, final ImageIcon imageIcon) {
-        mMap = map;
+    public ObjectInformation(final ImageIcon imageIcon) {
         mImageIcon = imageIcon;
-    }
-
-    public Map getMap() {
-        return mMap;
     }
 
     public ImageIcon getImageIcon() {

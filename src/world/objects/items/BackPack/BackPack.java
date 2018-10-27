@@ -45,6 +45,6 @@ public class BackPack extends AbstractItem {
 
     @Override
     protected ObjectInteraction getInteraction() {
-        return new BackPackModifier(getObjectInformation().getMap(), this);
+        return new BackPackInteraction(this);
     }
 }

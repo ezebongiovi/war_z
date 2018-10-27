@@ -18,6 +18,7 @@ public class CharacterInformation extends ObjectInformation {
     private final DefaultType mType;
     private final SurvivalState survivalState;
     private final Inventory mInventory;
+    private final Map mMap;
 
     /**
      * Default hidden constructor
@@ -25,12 +26,17 @@ public class CharacterInformation extends ObjectInformation {
      * @param builder the information's builder
      */
     private CharacterInformation(final Builder builder) {
-        super(builder.map, builder.imageIcon);
+        super(builder.imageIcon);
         id = builder.id;
+        mMap = builder.map;
         mType = builder.type;
         mMovementSpeed = builder.movementSpeed;
         survivalState = builder.survivalState == null ? SurvivalState.STARTER_STATE : builder.survivalState;
         mInventory = builder.inventory;
+    }
+
+    public Map getMap() {
+        return mMap;
     }
 
     public int getMovementSpeed() {

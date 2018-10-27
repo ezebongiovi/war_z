@@ -6,8 +6,10 @@ import world.behaviour.CharacterBehaviour;
 import world.character.animation.WalkAnimation;
 import world.character.control.Controls;
 import world.character.info.CharacterInformation;
+import world.character.info.Inventory;
 import world.objects.AbstractObject;
 import world.objects.interaction.ObjectInteraction;
+import world.objects.items.AbstractItem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -116,6 +118,14 @@ public class Character extends AbstractObject implements CharacterBehaviour {
     public void onAction() {
         for (final AbstractObject object : mInteractableObjects) {
             object.getObjectInteraction().interact(this);
+        }
+    }
+
+    public void pickUp(final AbstractItem object) {
+        final Inventory inventory = getCharacterInformation().getInventory();
+
+        if (inventory.addItem(object)) {
+            getCharacterInformation().getMap().removeObject(object);
         }
     }
 }

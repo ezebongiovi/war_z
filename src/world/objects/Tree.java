@@ -11,7 +11,7 @@ import java.awt.*;
  */
 public class Tree extends AbstractObject {
 
-    public static final String PATH = "/forest/pine.png";
+    public static final String PATH = "/environment/objects/forest/pine.png";
 
     /**
      * Default constructor
